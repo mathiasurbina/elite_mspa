@@ -1,0 +1,95 @@
+body {
+  background-color: #fff;  /* fondo blanco */
+  color: #212529;           /* texto oscuro para buena legibilidad */
+}
+.navbar {
+  background-color: #f8f1f1 !important;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  color: #d488aa;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-links a:hover,
+.btn-reserva:hover {
+  color: #d488aa;
+}
+
+.btn-reserva {
+  background-color: #d488aa;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-left: 1rem;
+}
+
+.hero {
+  background-color: #fff0f5;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #d488aa;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.servicio {
+  background-color: #fce4ec;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #6a1b9a;
+}
+
+footer {
+  background-color: #f8f1f1;
+  padding: 1rem;
+  text-align: center;
+  color: #888;
+}
+
+#servicios img {
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 10px;
+}
+
+#servicios img:hover {
+  transform: scale(1.05);
+}

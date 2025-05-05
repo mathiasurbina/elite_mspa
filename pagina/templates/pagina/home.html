@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Mspa</title>
+    
+    <!-- Bootstrap & jQuery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Cargar archivos estáticos de Django -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pagina/css/estilo.css' %}">
+    <link rel="icon" href="{% static 'pagina/img/Icono.jpeg' %}" type="image/x-icon">
+    <script src="{% static 'pagina/js/jquery.js' %}"></script>
+    <script src="{% static 'pagina/js/javascript.js' %}"></script>
+
+    <!-- Fuentes elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logo con imagen -->
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+                <img src="{% static 'pagina/img/icono.jpeg' %}" alt="Logo EliteMSPA" width="50" height="50" class="rounded-circle mr-2">
+                <span class="h4 mb-0 ml-2 font-weight-bold" style="font-family: 'Great Vibes', cursive;">EliteMSPA</span>
+            </a>
+    
+            <!-- Navegación -->
+            <nav>
+                <ul class="nav-links d-flex list-unstyled mb-0">
+                    <li class="mx-3"><a href="{% url 'home' %}" class="nav-link font-weight-semibold text-dark">Inicio</a></li>
+                    <li class="mx-3"><a href="{% url 'reserva' %}" class="nav-link font-weight-semibold text-dark">Reserva Hora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero text-center">
+        <div class="container">
+            <h2>Realza tu belleza con nosotros</h2>
+            <p>Reserva tu hora y disfruta de una experiencia única</p>
+            <a href="{% url 'reserva' %}" class="btn btn-primary">AGENDA AQUÍ</a>
+        </div>
+    </section>
+
+    <section id="servicios" class="servicios">
+        <div class="container text-center">
+            <h2 class="mb-4">Nuestros Servicios</h2>
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                    <img src="{% static 'pagina/img/manicure.jpg' %}" alt="Manicure" class="img-fluid rounded">
+                    <p class="mt-2 font-weight-bold text-dark">Manicure</p>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <img src="{% static 'pagina/img/pestanas.jpg' %}" alt="Pestañas" class="img-fluid rounded">
+                    <p class="mt-2 font-weight-bold text-dark">Pestañas</p>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <img src="{% static 'pagina/img/unas.jpg' %}" alt="Uñas Acrílicas" class="img-fluid rounded">
+                    <p class="mt-2 font-weight-bold text-dark">Uñas Acrílicas</p>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <img src="{% static 'pagina/img/esmaltado.jpg' %}" alt="Esmaltado Permanente" class="img-fluid rounded">
+                    <p class="mt-2 font-weight-bold text-dark">Esmaltado Permanente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section id="ubicacion" class="ubicacion">
+        <div class="container">
+            <h2>Ubicación</h2>
+            <p>Encuéntranos en: <strong>Gral. Ordóñez 155, Maipú</strong></p>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d831.6901173734012!2d-70.75979453034434!3d-33.50760858010536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662dcd4a2982133%3A0x54767487228deeae!2sGral.%20Ord%C3%B3%C3%B1ez%20155%2C%209251545%20Maip%C3%BA%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1746415315993!5m2!1ses!2scl" 
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Contacto: +56 9 1234 5678 | Instagram: @elitemspa</p>
+        </div>
+    </footer>
+</body>
+</html>
