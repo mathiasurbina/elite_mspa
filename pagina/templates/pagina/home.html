@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite Mspa</title>
     
-    <!-- Bootstrap & jQuery -->
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Cargar archivos estáticos de Django -->
+    
     {% load static %}
     <link rel="stylesheet" href="{% static 'pagina/css/estilo.css' %}">
     <link rel="icon" href="{% static 'pagina/img/Icono.jpeg' %}" type="image/x-icon">
     <script src="{% static 'pagina/js/jquery.js' %}"></script>
     <script src="{% static 'pagina/js/javascript.js' %}"></script>
 
-    <!-- Fuentes elegantes -->
+   
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <!-- Logo con imagen -->
+            
             <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
                 <img src="{% static 'pagina/img/icono.jpeg' %}" alt="Logo EliteMSPA" width="50" height="50" class="rounded-circle mr-2">
                 <span class="h4 mb-0 ml-2 font-weight-bold" style="font-family: 'Great Vibes', cursive;">EliteMSPA</span>
             </a>
     
-            <!-- Navegación -->
+            
             <nav>
                 <ul class="nav-links d-flex list-unstyled mb-0">
                     <li class="mx-3"><a href="{% url 'home' %}" class="nav-link font-weight-semibold text-dark">Inicio</a></li>
@@ -70,7 +70,7 @@
         </div>
     </section>
 
-    <!-- Ubicación -->
+    
     <section id="ubicacion" class="ubicacion">
         <div class="container">
             <h2>Ubicación</h2>
@@ -84,7 +84,7 @@
     </section>
     
 
-    <!-- Footer -->
+    
     <footer>
         <div class="container text-center">
             <p>Contacto: +56 9 1234 5678 | Instagram: @elitemspa</p>

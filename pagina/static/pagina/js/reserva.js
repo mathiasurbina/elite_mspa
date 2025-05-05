@@ -7,7 +7,7 @@ $(document).ready(function () {
             url: "/reserva/",
             type: "GET",
             data: { fecha: fecha },
-            headers: { 'X-Requested-With': 'XMLHttpRequest' },  // CORREGIDO AQUÍ
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },  
             success: function (response) {
                 const horas = response.horas;
                 const $container = $("#horas-disponibles");

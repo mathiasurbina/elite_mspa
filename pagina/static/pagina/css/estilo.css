@@ -93,3 +93,6 @@ footer {
 #servicios img:hover {
   transform: scale(1.05);
 }
+.navbar-brand {
+  cursor: pointer;
+}
