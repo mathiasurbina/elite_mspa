@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import home, reserva, admin_panel, panel_reservas
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', home, name='home'),
