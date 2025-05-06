@@ -6,6 +6,7 @@ from .forms import  ReservaForm, HorarioDisponibleForm, HorariosMultiplesForm
 from django.contrib import messages
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 
 
@@ -17,14 +18,14 @@ def reserva(request):
     if request.method == 'GET' and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         fecha = request.GET.get('fecha')
         
-        # Obtener todos los horarios para esa fecha
+        
         horarios = HorarioDisponible.objects.filter(fecha=fecha)
         
-        # Filtrar los horarios que ya están reservados
+        
         reservas = Reserva.objects.filter(fecha=fecha)
         horas_tomadas = [r.hora.strftime('%H:%M') for r in reservas]
         
-        # Dejar solo las horas libres
+        
         horas_disponibles = [h.hora.strftime('%H:%M') for h in horarios if h.hora.strftime('%H:%M') not in horas_tomadas]
 
         return JsonResponse({'horas': horas_disponibles})
@@ -56,14 +57,13 @@ def admin_panel(request):
 def panel_reservas(request):
     reservas = Reserva.objects.all().order_by('fecha', 'hora')
 
-    # Obtener todas las combinaciones fecha + hora ya tomadas
     horas_ocupadas = Reserva.objects.values_list('fecha', 'hora')
+    filtro = Q()
 
-    # Filtrar horarios disponibles que NO están reservados
-    disponibles = HorarioDisponible.objects.exclude(
-        fecha__in=[h[0] for h in horas_ocupadas],
-        hora__in=[h[1] for h in horas_ocupadas]
-    ).order_by('fecha', 'hora')
+    for fecha, hora in horas_ocupadas:
+        filtro |= Q(fecha=fecha, hora=hora)
+
+    disponibles = HorarioDisponible.objects.exclude(filtro).order_by('fecha', 'hora')
 
     return render(request, 'pagina/panel_reservas.html', {
         'reservas': reservas,
@@ -90,3 +90,8 @@ def eliminar_horario(request, horario_id):
         horario = get_object_or_404(HorarioDisponible, id=horario_id)
         horario.delete()
     return redirect('panel_reservas')
+
+def eliminar_reserva(request, reserva_id):
+    reserva = get_object_or_404(Reserva, id=reserva_id)
+    reserva.delete()
+    return redirect('panel_reservas') 

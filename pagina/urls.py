@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import home, reserva, admin_panel, panel_reservas
 from django.contrib.auth import views as auth_views
 from . import views
@@ -12,4 +12,5 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('agregar-horarios/', views.agregar_horarios, name='agregar_horarios'),
     path('eliminar-horario/<int:horario_id>/', views.eliminar_horario, name='eliminar_horario'),
+    path('eliminar-reserva/<int:reserva_id>/', views.eliminar_reserva, name='eliminar_reserva'),
 ]
