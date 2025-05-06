@@ -14,3 +14,10 @@ class Reserva(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - {self.fecha} a las {self.hora}"
+    
+class HorarioDisponible(models.Model):
+    fecha = models.DateField()
+    hora = models.TimeField()
+
+    def __str__(self):
+        return f"{self.fecha} - {self.hora}"

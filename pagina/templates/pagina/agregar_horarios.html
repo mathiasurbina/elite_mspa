@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Horarios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+    <header class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="{% static 'pagina/img/icono.jpeg' %}" alt="Logo EliteMSPA" width="50" height="50" class="rounded-circle mr-2">
+                <span class="h4 mb-0 ml-2 font-weight-bold" style="font-family: 'Great Vibes', cursive;">EliteMSPA</span>
+            </a>
+            <nav>
+                <ul class="nav-links d-flex list-unstyled mb-0">
+                    <li class="mx-3"><a href="{% url 'home' %}" class="nav-link font-weight-semibold text-dark">Inicio</a></li>
+                    <li class="mx-3"><a href="{% url 'reserva' %}" class="nav-link font-weight-semibold text-dark">Agenda Online</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1 class="mb-4">Agregar Fechas y Horarios a la Agenda</h1>
+
+    <!-- Botones de acción -->
+    <div class="text-center mb-4">
+        <a href="{% url 'panel_reservas' %}" class="btn btn-primary mx-2">Revisar horas reservadas</a>
+        <a href="{% url 'agregar_horarios' %}" class="btn btn-success mx-2">Agregar fechas y horas a la agenda</a>
+        <a href="{% url 'panel_reservas' %}#tabla-disponibles" class="btn btn-info mx-2">Ver horarios disponibles</a>
+    </div>
+
+    <!-- Formulario -->
+    <form method="POST" class="card p-4 shadow-sm">
+        {% csrf_token %}
+        {{ form.fecha.label_tag }} {{ form.fecha }} <br><br>
+        {{ form.horas.label_tag }} <br>
+        <div class="d-flex flex-wrap">
+            {% for checkbox in form.horas %}
+                <div class="form-check mr-3 mb-2">
+                    {{ checkbox.tag }}
+                    <label class="form-check-label">{{ checkbox.choice_label }}</label>
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Agregar horarios</button>
+    </form>
+    
+</body>
+</html>
